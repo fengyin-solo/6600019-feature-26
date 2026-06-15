@@ -6,6 +6,7 @@ export const useSeismicStore = defineStore('seismic', () => {
   const waveform = ref<WaveformData | null>(null)
   const picks = ref<PhasePick[]>([])
   const selectedStation = ref<Station | null>(null)
+  const hoverTime = ref<number | null>(null)
   const staWindow = ref(1.0)
   const ltaWindow = ref(10.0)
   const threshold = ref(3.5)
@@ -132,7 +133,7 @@ export const useSeismicStore = defineStore('seismic', () => {
   }
 
   return {
-    waveform, picks, selectedStation, staWindow, ltaWindow, threshold,
+    waveform, picks, selectedStation, hoverTime, staWindow, ltaWindow, threshold,
     isLoading, events, stations,
     loadMockData, staLtaPicking, uploadAndAnalyze, generateMockWaveform
   }
